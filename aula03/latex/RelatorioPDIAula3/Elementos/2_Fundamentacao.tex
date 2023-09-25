@@ -1,0 +1,96 @@
+\chapter[Fundamentação Teórica]{Fundamentação Teórica}
+
+\section{Transformação de Intensidade - Correção \textit{gamma}}
+
+As transformações de intensidade e filtragem espacial cobrem uma ampla variedade de aplicações. Nesta atividade específica a aplicação é o realce de imagens, que é o processo de manipular uma imagem de forma que o resultado seja mais adequado do que o original para um determinado fim.
+
+As transformações de potência apresentam a forma básica \cite{gonzalez2009processamento}:
+
+\begin{equation}\label{eq:gamma}
+    s = cr^\gamma
+\end{equation}
+
+sendo $c$ e $\gamma$ constantes positivas.
+
+\section{Histograma}
+
+O histograma é um gráfico de distribuição de frequências, onde em uma dimensão desse gráfico estão os valores que se deseja analisar a frequência e em outra estão as frequências desses valores. O histograma de uma imagem digital representa a frequência de cada nível de intensidade que um \textit{pixel} pode ter, sendo que essas frequências são a quantidade ou a porcentagem de \textit{pixels} que possuem determinada intensidade.
+
+\section{Binarização}
+
+A binarização é uma técnica que permite a segmentação de áreas de interesse em uma imagem digital por meio da transformação das tonalidades dos \textit{pixels} da mesma para preto (todos os \textit{bits} são zero) ou branco (todos os \textit{bits} são um).
+
+\subsection{Limiar}
+
+A técnica de binarização utiliza-se de um limiar (\textit{threshold}), que define um ponto de corte para a classificação dos \textit{pixels} de acordo com o seu valor. Os \textit{pixels} que possuem um valor maior do que o limiar tornam-se brancos e os que possuem um valor menor ou igual tornam-se pretos.
+
+\subsection{Otsu}
+
+O método \textit{Otsu} é uma forma de encontrar um limiar de forma dinâmica. Este método utiliza-se do histograma da imagem para encontrar as duas intensidades com maior frequência e a partir delas calcular o melhor limiar para a binarização da imagem. O método de \textit{Otsu} se caracteriza por sua natureza não paramétrica e não supervisionada de seleção de limiar e tem certas vantagens desejáveis, o processo como um todo é muito simples são utilizados somente os momentos cumulativos zero e de primeira ordem do histograma de níveis de cinza; viabilizando a análise de outros aspectos importantes, tais como estimativa dos níveis médios das classes e, separabilidade das classes. Um limiar ótimo (ou conjunto de limiares) é selecionado de forma automática e estável, não baseado na diferenciação (uma propriedade local como um vale) mas sim na integração (propriedade global) do histograma. 
+
+\section{\textit{bits} menos significativos (LSB) e \textit{bits} mais significativos (MSB)}
+
+As imagens digitais são representadas por \textit{pixels}, que nada mais são do que uma sequência de bits que podem ser armazenados e manipulados. Os bits de uma sequência podem ser classificados em dois grupos, os \textit{bits} mais significativos (\textit{Most Significant Bit} – MSB) e os \textit{bits} menos significativos (\textit{Least Significant Bit} – LSB) \cite{Adonias2017}.
+
+Os \textit{bits} menos significativos são aqueles que exercem uma menor influência sobre a informação e que não causam mudanças extremas caso sejam modificados. Os \textit{bits} mais significativos, por sua vez, exercem grande influência sobre a informação e podem causar ruídos muito perceptíveis quando alterados.
+
+\section{\textit{Peak Signal-to-Noise Ratio} (PSNR)}
+
+A PSNR e o \textit{Mean Square Error} (MSE) são métricas comuns na literatura para mensurar a qualidade entre duas imagens. O PSNR indica a semelhança entre duas imagens e é recíproco ao MSE, sendo o PSNR uma representação logarítmica do MSE.
+
+O MSE é calculado a partir do valor médio dos erros quadráticos entre os \textit{pixels} da imagem original e da imagem modificada que está sendo confrontada, sendo definido como:
+
+\begin{equation}\label{eq:psnr1}
+    MSE(f,h) = \frac{1}{R . C}\sum_{x=1}^{C}\sum_{y=1}^{R}(f(x,y) - h(x,y))^2,
+\end{equation}
+
+onde $R$ é o número total de linhas, $C$ é o número total de colunas e $f(x,y)$ e $h(x,y)$ são os níveis de intensidade de luminância em que $x$ e $y$ representam as coordenadas espaciais de um $pixel$. Quanto melhor a imagem avaliada em relação à original, menor é o valor do MSE \cite{Regis2015}.
+
+A PSNR, medida em decibéis (dB), é inversamente proporcional ao MSE e é definida como
+
+\begin{equation}\label{eq:psnr2}
+    PSNR = 10 \cdot {\log_{10} \left[ \frac{{MAX}^2}{MSE(f,h)} \right] } dB,
+\end{equation}
+
+em que $MAX = 2^b-1$ é o valor máximo da escala de níveis de cinza construída com $b$ \textit{bits}. Quanto maior o valor da PSNR, maior é a semelhança entre a imagem original e a imagem confrontada.
+
+Sua popularidade se dá devido a facilidade de implementação e rapidez no processamento, porém, a PSNR se baseia em uma comparação \textit{byte} a \textit{byte} dos dados, desconsiderando o que eles realmente representam.
+
+
+\section{\textit{Structural Similiarity Index} (SSIM)}
+
+O SSIM é uma métrica que utiliza a estatística da imagem para avaliação da qualidade. É construído como um modelo multiplicativo que é constituído de atributos da semelhança estrutural e de informações da luminância e contraste da imagem. 
+
+Sejam dois sinais representados por $f = \{f_i|i = 1, 2, ...,P\}$ e $h = \{h_i|i = 1, 2, ...,P\}$, sendo $f$ a imagem original e $h$ a imagem confrontada, define-se SSIM como
+
+\begin{equation}\label{eq:ssim1}
+    SSIM(f,h) = l(f,h)^\alpha \cdot c(f,h)^\beta \cdot s(f,h)^\gamma, 
+\end{equation}
+
+em que $l(\cdot)$, $c(\cdot)$ e $s(\cdot)$, indicam luminância, contraste e atributos de semelhança estrutural, respectivamente, e os expoentes $\alpha$, $\beta$ e $\gamma$ são parâmetros utilizados para ajustar a importância de cada atributo e, para efeitos de simplificação, são considerados iguais a $1$.
+
+A luminância mede a intensidade média de cada pixel $(\mu)$ entre $f$ e $h$, e é calculada por
+
+\begin{equation}\label{eq:ssim2}
+    l(f,h) = \frac{ 2\mu_f \mu_h + K_1}{\mu_f^2 \mu_h^2 + K_1}
+\end{equation}
+
+em que a constante $K_1$ é inserida para evitar instabilidade nos valores como, por exemplo, se o denominador tiver um valor próximo de zero.
+
+Analogamente, a análise do contraste é dada por
+
+\begin{equation}\label{eq:ssim3}
+    c(f,h) = \frac{ 2\theta_f \theta_h + K_2}{\theta_f^2 \theta_h^2 + K_2}
+\end{equation}
+
+em que o $\theta$ é o desvio padrão.
+
+Por fim, a análise entre as estruturas é dada por
+
+\begin{equation}\label{eq:ssim4}
+    s(f,h) = \frac{ 2\theta_{fh} + K_3}{\theta_f + \theta_h + K_3}
+\end{equation}
+
+assim como $K_1$, as constantes $K_2$ e $K_3$ são inseridas para evitar instabilidades nos valores.
+
+A técnica SSIM é utilizada para encontrar artefatos em imagens desde que haja outra imagem considerada como referência. Em comparação com a PSNR que estima apenas erros absolutos, o SSIM considera a degradação da imagem como uma alteração na informação estrutural.

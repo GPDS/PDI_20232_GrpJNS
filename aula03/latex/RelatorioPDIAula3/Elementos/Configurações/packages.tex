@@ -1,0 +1,67 @@
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage[utf8]{inputenc} % Codificação do documento (conversão automática dos acentos)
+\usepackage[T1]{fontenc}    % Seleção de códigos de fonte
+\usepackage{pslatex}		% Fonte parecida com a Times New
+\usepackage{lmodern}        % Usa a fonte Latin Modern
+\usepackage{cmap}	        % Mapear caracteres especiais no PDF
+\usepackage{amsmath,amssymb,amsfonts,textcomp} % Fontes matemáticas
+\usepackage{graphicx}       % Inclusão de gráficos
+\usepackage{color}          % Controle das cores
+\usepackage{microtype}      % Para melhorias de justificação
+\usepackage{indentfirst}    % Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl}        % Lista de símbolos
+\usepackage[algoruled,algochapter,longend,portuguese]{algorithm2e}	% Permite incluir algoritmos no PDF
+\usepackage{makecell}       %
+\usepackage{pdfpages}
+\usepackage{fancyvrb}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{appendix}
+\usepackage{listings}       %Inserir códigos
+\usepackage{xcolor}
+
+%Setando as características dos códigos
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}    % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	                % Citações padrão ABNT
+% ---

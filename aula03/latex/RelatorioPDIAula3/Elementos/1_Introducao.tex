@@ -1,0 +1,22 @@
+\chapter[Introdução]{Introdução}
+
+As imagens digitais nem sempre são objetos triviais de se analisar. Muitas vezes, informações importantes podem passar despercebidas e isso pode ocorrer propositalmente ou não. Para resolver esse problema, diferentes técnicas podem ser aplicadas sobre a imagem para que detalhes ocultos venham à tona.
+
+Informações importantes podem ser extraídas por meio da visualização do histograma de uma imagem, e este também pode ser utilizado por algoritmos de filtragem para a aplicação de correções e transformações sobre a imagem alvo. A correção \textit{Gamma} permite que áreas escuras de uma imagem sejam clareadas para que detalhes escondidos possam ser visualizados, e da mesma forma, permite que áreas claras sejam escurecidas, aumentando o destaque das informações ofuscadas pela claridade.
+
+Outra técnica importante é a binarização, que retira todos os detalhes desnecessários de uma imagem, dividindo-a em regiões pretas ou brancas. Algumas vezes, no entanto, o que se deseja não é a visualização de informações ocultas e sim a ocultação de informações em uma imagem. Esse objetivo pode ser alcançado por meio das técnicas de LSB e MSB, dessa forma, informações como textos, imagens ou até áudios podem ser transportadas através de \textit{bits} específicos de cada \textit{pixel} de uma imagem.
+
+A atividade proposta tem como objetivo testar todas as técnicas descritas anteriormente, a fim de demonstrar a sua utilidade para a área de processamento de imagens digitais e visão computacional.
+
+
+Etapas da atividade:
+
+\begin{enumerate}
+    \item Apresentar o Histograma das imagens selecionadas em aulas anteriores;
+    \item Clarear e escurecer as imagens (usando dois valores de \textit{gamma}), apresentando também o histograma;
+    \item Binarizar as imagens originais e transformadas, por limiar e \textit{Otsu};
+    \item \begin{enumerate}
+        \item Apresentar as imagens com os \textit{bits} mais e menos significativos;
+        \item Substituir com zeros os bits menos significativos e avaliar com as métricas objetivas.
+    \end{enumerate}
+\end{enumerate}

@@ -1,0 +1,142 @@
+% --- 
+% CONFIGURAÇÕES
+% --- 
+
+% ---
+% Reestrutura a fonte do capítulo e da sessão
+% ---
+\renewcommand{\ABNTEXchapterfont}{\fontseries{b}}
+\renewcommand{\ABNTEXchapterfontsize}{\large}
+\renewcommand{\ABNTEXsectionfont}{\fontseries{m}}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfont}{\fontseries{b}}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsectionfont}{\fontseries{m}}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\instituicao {
+Instituto Federal da Paraíba\\
+Coordenação de Pós-graduação em Engenharia Elétrica\\
+Disciplina: Processamento Digital de Imagens
+}
+
+\titulo {Relatório\\Atividade Avaliativa da Aula 3}
+
+\tipotrabalho {Relatório}
+
+\autor {Nayana Priscylla Nery dos Santos \\
+        Jônatas Mendes da Cruz \\
+        Sérgio Ricardo Maciel Pedrosa}
+\orientador {Carlos Danilo Miranda Régis, Dr.}
+\coorientador{}
+
+\local {João Pessoa - PB}
+\date {Setembro de 2023}
+
+\preambulo{\textbf{Relatório apresentado ao professor Carlos Danilo Miranda Régis, referente a atividade avaliativa da terceira aula da disciplina de Processamento Digital de Imagens, do Programa de Pós-Graduação em Engenharia Elétrica do Instituto Federal de Educação, Ciência e Tecnologia da Paraíba}}
+% ---
+
+% ---
+% Folha da capa
+% ---
+\renewcommand{\imprimircapa}
+{
+  \begin{capa}
+    \begin{center}
+        \includegraphics[width=15.5cm,keepaspectratio]{Elementos/Figuras/Figuras capa/header.jpg}
+        \large\imprimirinstituicao
+        \vspace{5cm}
+
+       	\large\imprimirautor
+    
+        \vspace*{\fill}
+       		\large\imprimirtitulo
+        \vspace*{\fill}
+        
+        \normalsize\imprimirlocal
+        \par
+        \normalsize\imprimirdata
+    \end{center}
+  \end{capa}
+}
+% ---
+
+% ---
+% Folha de rosto
+% ---
+\renewcommand{\imprimirfolhaderosto}
+{
+    \begin{folhaderosto}
+        \begin{center}
+            Instituto Federal da Paraíba\\
+            Programa de Pós-graduação em Engenharia Elétrica\\
+            Disciplina: Ferramentas para Análise e Processamento de Sinais\\
+
+            \imprimirautor
+
+            \vspace*{\fill}
+            {\large\imprimirtitulo}
+            \vspace*{\fill}
+        
+            \hspace{.45\textwidth}
+            \begin{minipage}
+                {.5\textwidth}
+                \imprimirpreambulo
+            \end{minipage}
+               
+            \vspace*{\fill}
+       	    \textbf{Orientador:} \large\imprimirorientador
+            \vspace*{\fill}
+        
+            \normalsize\imprimirlocal
+            \par
+            \normalsize\imprimirdata
+        \end{center}
+    \end{folhaderosto}
+}
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout
+% ---
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o índice
+% ---
+\makeindex
+% ---
